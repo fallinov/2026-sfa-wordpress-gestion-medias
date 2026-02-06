@@ -909,28 +909,61 @@
     </footer>
 
     <script>
-        // Navigation dots active state
+        // Navigation state
         const sections = document.querySelectorAll('.slide');
         const navDots = document.querySelectorAll('.nav-dot');
+        let currentSlide = 0;
 
+        // Update navigation dots
+        function updateNavDots(index) {
+            navDots.forEach((dot, i) => {
+                dot.classList.remove('active', 'bg-wp');
+                dot.classList.add('bg-white/30');
+                if (i === index) {
+                    dot.classList.add('active', 'bg-wp');
+                    dot.classList.remove('bg-white/30');
+                }
+            });
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            if (index >= 0 && index < sections.length) {
+                currentSlide = index;
+                sections[index].scrollIntoView({ behavior: 'smooth' });
+                updateNavDots(index);
+            }
+        }
+
+        // Next slide
+        function nextSlide() {
+            if (currentSlide < sections.length - 1) {
+                goToSlide(currentSlide + 1);
+            }
+        }
+
+        // Previous slide
+        function prevSlide() {
+            if (currentSlide > 0) {
+                goToSlide(currentSlide - 1);
+            }
+        }
+
+        // Intersection Observer to track current slide
         const observerOptions = {
             root: null,
-            rootMargin: '0px',
-            threshold: 0.5
+            rootMargin: '-40% 0px -40% 0px',
+            threshold: 0
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const id = entry.target.id;
-                    navDots.forEach(dot => {
-                        dot.classList.remove('active', 'bg-wp');
-                        dot.classList.add('bg-white/30');
-                        if (dot.getAttribute('href') === `#${id}`) {
-                            dot.classList.add('active', 'bg-wp');
-                            dot.classList.remove('bg-white/30');
-                        }
-                    });
+                    const index = Array.from(sections).indexOf(entry.target);
+                    if (index !== -1) {
+                        currentSlide = index;
+                        updateNavDots(index);
+                    }
                 }
             });
         }, observerOptions);
@@ -939,22 +972,34 @@
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            const currentSection = Array.from(sections).findIndex(section => {
-                const rect = section.getBoundingClientRect();
-                return rect.top >= -100 && rect.top <= 100;
-            });
-
-            if (e.key === 'ArrowDown' || e.key === ' ') {
+            // Next: ArrowDown, ArrowRight, Space, Enter
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
                 e.preventDefault();
-                if (currentSection < sections.length - 1) {
-                    sections[currentSection + 1].scrollIntoView({ behavior: 'smooth' });
-                }
-            } else if (e.key === 'ArrowUp') {
-                e.preventDefault();
-                if (currentSection > 0) {
-                    sections[currentSection - 1].scrollIntoView({ behavior: 'smooth' });
-                }
+                nextSlide();
             }
+            // Previous: ArrowUp, ArrowLeft
+            else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+            // Home: go to first slide
+            else if (e.key === 'Home') {
+                e.preventDefault();
+                goToSlide(0);
+            }
+            // End: go to last slide
+            else if (e.key === 'End') {
+                e.preventDefault();
+                goToSlide(sections.length - 1);
+            }
+        });
+
+        // Click on nav dots
+        navDots.forEach((dot, index) => {
+            dot.addEventListener('click', (e) => {
+                e.preventDefault();
+                goToSlide(index);
+            });
         });
     </script>
 </body>
