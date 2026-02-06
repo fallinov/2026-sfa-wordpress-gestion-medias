@@ -28,7 +28,13 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        .slide { min-height: 100vh; scroll-snap-align: start; }
+        .slide {
+            min-height: 100vh;
+            height: 100vh;
+            max-height: 100vh;
+            scroll-snap-align: start;
+            overflow: hidden;
+        }
         .code-block { background: #1e1e1e; }
         .gradient-wp { background: linear-gradient(135deg, #0073aa 0%, #23282d 100%); }
         .gradient-wp-light { background: linear-gradient(135deg, #00a0d2 0%, #0073aa 100%); }
@@ -107,7 +113,44 @@
             background-color: rgba(255,255,255,0.1) !important;
         }
 
-        .high-contrast { font-size: 112%; }
+        /* Mode contraste: réduire paddings pour garder le contenu dans l'écran */
+        .high-contrast .slide {
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+
+        .high-contrast .py-20 {
+            padding-top: 2rem !important;
+            padding-bottom: 2rem !important;
+        }
+
+        .high-contrast .mb-12 {
+            margin-bottom: 1.5rem !important;
+        }
+
+        .high-contrast .mb-8 {
+            margin-bottom: 1rem !important;
+        }
+
+        .high-contrast .mb-6 {
+            margin-bottom: 0.75rem !important;
+        }
+
+        .high-contrast .gap-12 {
+            gap: 1.5rem !important;
+        }
+
+        .high-contrast .gap-6 {
+            gap: 1rem !important;
+        }
+
+        .high-contrast .p-6 {
+            padding: 1rem !important;
+        }
+
+        .high-contrast .p-5 {
+            padding: 0.75rem !important;
+        }
 
         .high-contrast .nav-dot {
             width: 1rem !important;
