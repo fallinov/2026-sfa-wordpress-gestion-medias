@@ -69,22 +69,88 @@
         .tag { color: #569cd6; }
         .attr { color: #9cdcfe; }
         .value { color: #ce9178; }
+
+        /* Mode contraste élevé */
+        .high-contrast body,
+        .high-contrast .bg-slate-900,
+        .high-contrast .bg-slate-800 {
+            background-color: #000000 !important;
+        }
+
+        .high-contrast .text-slate-300,
+        .high-contrast .text-slate-400,
+        .high-contrast .text-slate-500 {
+            color: #e2e8f0 !important;
+        }
+
+        .high-contrast .text-white\/70,
+        .high-contrast .text-white\/80 {
+            color: #ffffff !important;
+        }
+
+        .high-contrast .text-wp {
+            color: #00a0d2 !important;
+        }
+
+        .high-contrast .bg-wp {
+            background-color: #00a0d2 !important;
+        }
+
+        .high-contrast .border-slate-700,
+        .high-contrast .border-slate-800 {
+            border-color: rgba(255,255,255,0.3) !important;
+        }
+
+        .high-contrast .bg-slate-700\/30,
+        .high-contrast .bg-slate-800\/50,
+        .high-contrast .bg-slate-900\/50 {
+            background-color: rgba(255,255,255,0.1) !important;
+        }
+
+        .high-contrast { font-size: 112%; }
+
+        .high-contrast .nav-dot {
+            width: 1rem !important;
+            height: 1rem !important;
+        }
+
+        .high-contrast .nav-dot:not(.active) {
+            background-color: rgba(255,255,255,0.5) !important;
+        }
+
+        /* Indicateur mode contraste */
+        .contrast-indicator {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 160, 210, 0.9);
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .high-contrast .contrast-indicator { display: flex; }
     </style>
 </head>
 <body class="font-sans bg-slate-900 text-white overflow-x-hidden">
 
     <!-- Navigation latérale -->
     <nav class="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-3">
-        <a href="#slide-1" class="nav-dot w-3 h-3 rounded-full bg-white/30 hover:bg-wp transition-all" title="Accueil"></a>
-        <a href="#slide-2" class="nav-dot w-3 h-3 rounded-full bg-white/30 hover:bg-wp transition-all" title="Erreurs fréquentes"></a>
-        <a href="#slide-3" class="nav-dot w-3 h-3 rounded-full bg-white/30 hover:bg-wp transition-all" title="Formats d'images"></a>
-        <a href="#slide-4" class="nav-dot w-3 h-3 rounded-full bg-white/30 hover:bg-wp transition-all" title="Redimensionner"></a>
-        <a href="#slide-5" class="nav-dot w-3 h-3 rounded-full bg-white/30 hover:bg-wp transition-all" title="Compresser"></a>
-        <a href="#slide-6" class="nav-dot w-3 h-3 rounded-full bg-white/30 hover:bg-wp transition-all" title="Nommer ses images"></a>
-        <a href="#slide-7" class="nav-dot w-3 h-3 rounded-full bg-white/30 hover:bg-wp transition-all" title="Texte alternatif"></a>
-        <a href="#slide-8" class="nav-dot w-3 h-3 rounded-full bg-white/30 hover:bg-wp transition-all" title="WordPress"></a>
-        <a href="#slide-9" class="nav-dot w-3 h-3 rounded-full bg-white/30 hover:bg-wp transition-all" title="Outils"></a>
-        <a href="#slide-10" class="nav-dot w-3 h-3 rounded-full bg-white/30 hover:bg-wp transition-all" title="Récapitulatif"></a>
+        <a href="#slide-1" class="nav-dot w-4 h-4 rounded-full bg-white/40 hover:bg-wpLight transition-all" title="Accueil"></a>
+        <a href="#slide-2" class="nav-dot w-4 h-4 rounded-full bg-white/40 hover:bg-wpLight transition-all" title="Erreurs fréquentes"></a>
+        <a href="#slide-3" class="nav-dot w-4 h-4 rounded-full bg-white/40 hover:bg-wpLight transition-all" title="Formats d'images"></a>
+        <a href="#slide-4" class="nav-dot w-4 h-4 rounded-full bg-white/40 hover:bg-wpLight transition-all" title="Redimensionner"></a>
+        <a href="#slide-5" class="nav-dot w-4 h-4 rounded-full bg-white/40 hover:bg-wpLight transition-all" title="Compresser"></a>
+        <a href="#slide-6" class="nav-dot w-4 h-4 rounded-full bg-white/40 hover:bg-wpLight transition-all" title="Nommer ses images"></a>
+        <a href="#slide-7" class="nav-dot w-4 h-4 rounded-full bg-white/40 hover:bg-wpLight transition-all" title="Texte alternatif"></a>
+        <a href="#slide-8" class="nav-dot w-4 h-4 rounded-full bg-white/40 hover:bg-wpLight transition-all" title="WordPress"></a>
+        <a href="#slide-9" class="nav-dot w-4 h-4 rounded-full bg-white/40 hover:bg-wpLight transition-all" title="Outils"></a>
+        <a href="#slide-10" class="nav-dot w-4 h-4 rounded-full bg-white/40 hover:bg-wpLight transition-all" title="Récapitulatif"></a>
     </nav>
 
     <!-- Slide 1: Titre -->
@@ -118,7 +184,7 @@
                 <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                 </svg>
-                <p class="text-sm text-white/70 mt-2">Défiler pour commencer</p>
+                <p class="text-sm text-white/80 mt-2">Défiler pour commencer</p>
             </div>
         </div>
     </section>
@@ -128,7 +194,7 @@
         <div class="max-w-6xl mx-auto px-6 w-full">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <span class="text-wp font-mono text-sm mb-4 block">01 / Introduction</span>
+                    <span class="text-wp font-mono text-base mb-4 block">01 / Introduction</span>
                     <h2 class="text-4xl md:text-5xl font-bold mb-6">Pourquoi <span class="text-wp">optimiser</span> ses images ?</h2>
                     <blockquote class="text-xl text-slate-300 mb-6 leading-relaxed border-l-4 border-wp pl-6 italic">
                         "Un bon croquis vaut mieux qu'un long discours"
@@ -152,35 +218,35 @@
                             <span class="text-red-400 text-xl">✗</span>
                             <div>
                                 <p class="font-medium">Mauvais format d'image</p>
-                                <p class="text-sm text-slate-400">JPG pour un logo, PNG pour une photo...</p>
+                                <p class="text-sm text-slate-300">JPG pour un logo, PNG pour une photo...</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3 p-3 bg-red-500/10 rounded-lg">
                             <span class="text-red-400 text-xl">✗</span>
                             <div>
                                 <p class="font-medium">Images trop lourdes</p>
-                                <p class="text-sm text-slate-400">Pas de compression = pages lentes</p>
+                                <p class="text-sm text-slate-300">Pas de compression = pages lentes</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3 p-3 bg-red-500/10 rounded-lg">
                             <span class="text-red-400 text-xl">✗</span>
                             <div>
                                 <p class="font-medium">Images trop grandes</p>
-                                <p class="text-sm text-slate-400">Photos de 5000px non redimensionnées</p>
+                                <p class="text-sm text-slate-300">Photos de 5000px non redimensionnées</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3 p-3 bg-red-500/10 rounded-lg">
                             <span class="text-red-400 text-xl">✗</span>
                             <div>
                                 <p class="font-medium">Noms incompréhensibles</p>
-                                <p class="text-sm text-slate-400">DC00345.jpg, IMG_2847.png...</p>
+                                <p class="text-sm text-slate-300">DC00345.jpg, IMG_2847.png...</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3 p-3 bg-red-500/10 rounded-lg">
                             <span class="text-red-400 text-xl">✗</span>
                             <div>
                                 <p class="font-medium">Pas de texte alternatif</p>
-                                <p class="text-sm text-slate-400">Mauvais pour l'accessibilité et le SEO</p>
+                                <p class="text-sm text-slate-300">Mauvais pour l'accessibilité et le SEO</p>
                             </div>
                         </div>
                     </div>
@@ -192,7 +258,7 @@
     <!-- Slide 3: Formats d'images -->
     <section id="slide-3" class="slide flex items-center bg-slate-800 py-20">
         <div class="max-w-6xl mx-auto px-6 w-full">
-            <span class="text-wp font-mono text-sm mb-4 block">02 / Formats</span>
+            <span class="text-wp font-mono text-base mb-4 block">02 / Formats</span>
             <h2 class="text-4xl md:text-5xl font-bold mb-12">Utiliser le <span class="text-wp">bon format</span></h2>
 
             <div class="grid md:grid-cols-3 gap-4 mb-6">
@@ -202,7 +268,7 @@
                     </div>
                     <h3 class="text-lg font-bold mb-2">JPEG</h3>
                     <p class="text-slate-400 text-sm mb-2">Idéal pour les <strong class="text-white">photos</strong></p>
-                    <ul class="text-xs text-slate-500 space-y-1">
+                    <ul class="text-sm text-slate-300 space-y-1">
                         <li>✓ Compression efficace</li>
                         <li>✓ 100% navigateurs</li>
                         <li>✗ Pas de transparence</li>
@@ -215,7 +281,7 @@
                     </div>
                     <h3 class="text-lg font-bold mb-2">PNG</h3>
                     <p class="text-slate-400 text-sm mb-2">Idéal pour les <strong class="text-white">logos</strong></p>
-                    <ul class="text-xs text-slate-500 space-y-1">
+                    <ul class="text-sm text-slate-300 space-y-1">
                         <li>✓ Transparence</li>
                         <li>✓ Sans perte (lossless)</li>
                         <li>✗ Fichiers lourds</li>
@@ -228,7 +294,7 @@
                     </div>
                     <h3 class="text-lg font-bold mb-2">SVG</h3>
                     <p class="text-slate-400 text-sm mb-2">Idéal pour les <strong class="text-white">icônes</strong></p>
-                    <ul class="text-xs text-slate-500 space-y-1">
+                    <ul class="text-sm text-slate-300 space-y-1">
                         <li>✓ Vectoriel (zoom ∞)</li>
                         <li>✓ Très léger</li>
                         <li>✗ Pas pour photos</li>
@@ -241,7 +307,7 @@
                     </div>
                     <h3 class="text-lg font-bold mb-2">GIF</h3>
                     <p class="text-slate-400 text-sm mb-2">Idéal pour les <strong class="text-white">animations</strong></p>
-                    <ul class="text-xs text-slate-500 space-y-1">
+                    <ul class="text-sm text-slate-300 space-y-1">
                         <li>✓ Animations simples</li>
                         <li>✗ 256 couleurs max</li>
                         <li>✗ Fichiers lourds</li>
@@ -254,7 +320,7 @@
                     </div>
                     <h3 class="text-lg font-bold mb-2 text-wp">WebP</h3>
                     <p class="text-slate-400 text-sm mb-2"><strong class="text-white">Moderne</strong> (Google)</p>
-                    <ul class="text-xs text-slate-500 space-y-1">
+                    <ul class="text-sm text-slate-300 space-y-1">
                         <li>✓ 25-35% plus léger que JPG</li>
                         <li>✓ Transparence + animation</li>
                         <li>✓ <strong class="text-green-400">97% navigateurs</strong></li>
@@ -267,7 +333,7 @@
                     </div>
                     <h3 class="text-lg font-bold mb-2 text-green-400">AVIF</h3>
                     <p class="text-slate-400 text-sm mb-2"><strong class="text-white">Nouvelle génération</strong></p>
-                    <ul class="text-xs text-slate-500 space-y-1">
+                    <ul class="text-sm text-slate-300 space-y-1">
                         <li>✓ <strong class="text-green-400">50% plus léger</strong> que JPG</li>
                         <li>✓ Meilleure qualité</li>
                         <li>✓ ~90% navigateurs</li>
@@ -295,7 +361,7 @@
     <!-- Slide 4: Redimensionner -->
     <section id="slide-4" class="slide flex items-center bg-slate-900 py-20">
         <div class="max-w-6xl mx-auto px-6 w-full">
-            <span class="text-wp font-mono text-sm mb-4 block">03 / Dimensions</span>
+            <span class="text-wp font-mono text-base mb-4 block">03 / Dimensions</span>
             <h2 class="text-4xl md:text-5xl font-bold mb-8"><span class="text-wp">Redimensionner</span> ses images</h2>
 
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -369,12 +435,12 @@
                         <div class="bg-red-500/10 p-4 rounded-xl text-center">
                             <span class="text-3xl">🐌</span>
                             <p class="text-red-400 font-bold mt-2">8.5 Mo</p>
-                            <p class="text-xs text-slate-400">~17 sec en 4G</p>
+                            <p class="text-sm text-slate-300">~17 sec en 4G</p>
                         </div>
                         <div class="bg-green-500/10 p-4 rounded-xl text-center">
                             <span class="text-3xl">⚡</span>
                             <p class="text-green-400 font-bold mt-2">180 Ko</p>
-                            <p class="text-xs text-slate-400">~0.3 sec en 4G</p>
+                            <p class="text-sm text-slate-300">~0.3 sec en 4G</p>
                         </div>
                     </div>
                 </div>
@@ -385,7 +451,7 @@
     <!-- Slide 5: Compresser -->
     <section id="slide-5" class="slide flex items-center gradient-wp-light py-20">
         <div class="max-w-6xl mx-auto px-6 w-full">
-            <span class="font-mono text-sm mb-4 block text-white/70">04 / Compression</span>
+            <span class="font-mono text-sm mb-4 block text-white/80">04 / Compression</span>
             <h2 class="text-4xl md:text-5xl font-bold mb-8">Compresser ses images</h2>
 
             <div class="grid md:grid-cols-2 gap-12 items-start">
@@ -416,7 +482,7 @@
 
                     <div class="mt-6 bg-white/20 backdrop-blur-sm p-4 rounded-xl">
                         <p class="text-white font-medium">⚠️ Attention</p>
-                        <p class="text-white/70 text-sm mt-1">La compression est <strong class="text-white">irréversible</strong>. Gardez toujours vos originaux !</p>
+                        <p class="text-white/80 text-sm mt-1">La compression est <strong class="text-white">irréversible</strong>. Gardez toujours vos originaux !</p>
                     </div>
                 </div>
 
@@ -472,7 +538,7 @@
     <!-- Slide 6: Nommer ses images -->
     <section id="slide-6" class="slide flex items-center bg-slate-900 py-20">
         <div class="max-w-6xl mx-auto px-6 w-full">
-            <span class="text-wp font-mono text-sm mb-4 block">05 / Nommage</span>
+            <span class="text-wp font-mono text-base mb-4 block">05 / Nommage</span>
             <h2 class="text-4xl md:text-5xl font-bold mb-8">Utiliser des noms <span class="text-wp">descriptifs</span></h2>
 
             <div class="grid md:grid-cols-2 gap-12 items-start">
@@ -530,7 +596,7 @@
     <!-- Slide 7: Texte alternatif -->
     <section id="slide-7" class="slide flex items-center bg-slate-800 py-20">
         <div class="max-w-6xl mx-auto px-6 w-full">
-            <span class="text-wp font-mono text-sm mb-4 block">06 / Accessibilité</span>
+            <span class="text-wp font-mono text-base mb-4 block">06 / Accessibilité</span>
             <h2 class="text-4xl md:text-5xl font-bold mb-8">Le <span class="text-wp">texte alternatif</span></h2>
 
             <div class="grid md:grid-cols-2 gap-12 items-start">
@@ -566,7 +632,7 @@
 
                 <div class="space-y-6">
                     <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-700">
-                        <p class="text-sm text-slate-400 mb-3 font-mono">Syntaxe HTML</p>
+                        <p class="text-sm text-slate-300 mb-3 font-mono">Syntaxe HTML</p>
                         <div class="code-block rounded-xl p-4 font-mono text-sm overflow-x-auto">
                             <code>
                                 <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="value">"etang-gruere.jpg"</span><br>
@@ -586,7 +652,7 @@
                     </div>
 
                     <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-700">
-                        <p class="text-sm text-slate-400 mb-3 font-mono">Bonus : figure + figcaption</p>
+                        <p class="text-sm text-slate-300 mb-3 font-mono">Bonus : figure + figcaption</p>
                         <div class="code-block rounded-xl p-4 font-mono text-sm overflow-x-auto">
                             <code>
                                 <span class="tag">&lt;figure&gt;</span><br>
@@ -608,7 +674,7 @@
     <!-- Slide 8: WordPress spécifique -->
     <section id="slide-8" class="slide flex items-center bg-slate-900 py-20">
         <div class="max-w-6xl mx-auto px-6 w-full">
-            <span class="text-wp font-mono text-sm mb-4 block">07 / WordPress</span>
+            <span class="text-wp font-mono text-base mb-4 block">07 / WordPress</span>
             <h2 class="text-4xl md:text-5xl font-bold mb-8">Médias dans <span class="text-wp">WordPress</span></h2>
 
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -626,7 +692,7 @@
                                 </div>
                                 <div>
                                     <p class="font-medium">Titre</p>
-                                    <p class="text-sm text-slate-400">Pour la recherche interne WordPress. Utilisez des mots-clés !</p>
+                                    <p class="text-sm text-slate-300">Pour la recherche interne WordPress. Utilisez des mots-clés !</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
@@ -635,7 +701,7 @@
                                 </div>
                                 <div>
                                     <p class="font-medium">Texte alternatif</p>
-                                    <p class="text-sm text-slate-400">Le plus important ! Décrit l'image pour l'accessibilité et le SEO.</p>
+                                    <p class="text-sm text-slate-300">Le plus important ! Décrit l'image pour l'accessibilité et le SEO.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
@@ -700,7 +766,7 @@
     <!-- Slide 9: Outils -->
     <section id="slide-9" class="slide flex items-center bg-slate-800 py-20">
         <div class="max-w-6xl mx-auto px-6 w-full">
-            <span class="text-wp font-mono text-sm mb-4 block">08 / Outils</span>
+            <span class="text-wp font-mono text-base mb-4 block">08 / Outils</span>
             <h2 class="text-4xl md:text-5xl font-bold mb-12">Outils <span class="text-wp">recommandés</span></h2>
 
             <div class="grid md:grid-cols-3 gap-6 mb-8">
@@ -838,7 +904,7 @@
     <!-- Slide 10: Récapitulatif -->
     <section id="slide-10" class="slide flex items-center gradient-wp py-20">
         <div class="max-w-6xl mx-auto px-6 w-full text-center">
-            <span class="font-mono text-sm mb-4 block text-white/70">09 / Résumé</span>
+            <span class="font-mono text-sm mb-4 block text-white/80">09 / Résumé</span>
             <h2 class="text-4xl md:text-5xl font-bold mb-12">Checklist avant upload</h2>
 
             <div class="grid md:grid-cols-5 gap-4 mb-12">
@@ -847,7 +913,7 @@
                         <span class="text-2xl font-bold">1</span>
                     </div>
                     <h3 class="font-bold mb-2">Format</h3>
-                    <p class="text-white/70 text-sm">WebP/AVIF pour photos, PNG/SVG pour logos</p>
+                    <p class="text-white/80 text-sm">WebP/AVIF pour photos, PNG/SVG pour logos</p>
                 </div>
 
                 <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl">
@@ -855,7 +921,7 @@
                         <span class="text-2xl font-bold">2</span>
                     </div>
                     <h3 class="font-bold mb-2">Dimensions</h3>
-                    <p class="text-white/70 text-sm">Redimensionner à la taille max d'affichage</p>
+                    <p class="text-white/80 text-sm">Redimensionner à la taille max d'affichage</p>
                 </div>
 
                 <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl">
@@ -863,7 +929,7 @@
                         <span class="text-2xl font-bold">3</span>
                     </div>
                     <h3 class="font-bold mb-2">Compression</h3>
-                    <p class="text-white/70 text-sm">72 DPI, qualité 60-80%</p>
+                    <p class="text-white/80 text-sm">72 DPI, qualité 60-80%</p>
                 </div>
 
                 <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl">
@@ -871,7 +937,7 @@
                         <span class="text-2xl font-bold">4</span>
                     </div>
                     <h3 class="font-bold mb-2">Nom</h3>
-                    <p class="text-white/70 text-sm">mots-cles-pertinents.jpg</p>
+                    <p class="text-white/80 text-sm">mots-cles-pertinents.jpg</p>
                 </div>
 
                 <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl">
@@ -879,7 +945,7 @@
                         <span class="text-2xl font-bold">5</span>
                     </div>
                     <h3 class="font-bold mb-2">Alt</h3>
-                    <p class="text-white/70 text-sm">Description courte et pertinente</p>
+                    <p class="text-white/80 text-sm">Description courte et pertinente</p>
                 </div>
             </div>
 
@@ -905,8 +971,19 @@
             <p class="text-slate-400">
                 Cours C741 — WordPress — ESIG
             </p>
+            <p class="text-slate-500 text-sm mt-2">
+                <kbd class="px-2 py-1 bg-slate-700 rounded text-slate-300 font-mono text-xs">C</kbd> Mode contraste élevé
+            </p>
         </div>
     </footer>
+
+    <!-- Indicateur mode contraste -->
+    <div class="contrast-indicator">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+        Contraste élevé (C)
+    </div>
 
     <script>
         // Navigation state
@@ -917,11 +994,11 @@
         // Update navigation dots
         function updateNavDots(index) {
             navDots.forEach((dot, i) => {
-                dot.classList.remove('active', 'bg-wp');
-                dot.classList.add('bg-white/30');
+                dot.classList.remove('active', 'bg-wp', 'bg-wpLight');
+                dot.classList.add('bg-white/40');
                 if (i === index) {
-                    dot.classList.add('active', 'bg-wp');
-                    dot.classList.remove('bg-white/30');
+                    dot.classList.add('active', 'bg-wpLight');
+                    dot.classList.remove('bg-white/40');
                 }
             });
         }
@@ -1000,6 +1077,38 @@
                 e.preventDefault();
                 goToSlide(index);
             });
+        });
+
+        // ============================================
+        // Mode contraste élevé
+        // ============================================
+
+        // Initialiser le mode contraste depuis localStorage
+        function initHighContrastMode() {
+            if (localStorage.getItem('highContrast') === 'true') {
+                document.documentElement.classList.add('high-contrast');
+            }
+        }
+
+        // Basculer le mode contraste
+        function toggleHighContrast() {
+            const isActive = document.documentElement.classList.toggle('high-contrast');
+            localStorage.setItem('highContrast', isActive.toString());
+        }
+
+        // Initialiser au chargement
+        initHighContrastMode();
+
+        // Ajouter la touche C pour le mode contraste
+        document.addEventListener('keydown', (e) => {
+            // Ignorer si focus dans un input
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                return;
+            }
+            // Toggle avec la touche C
+            if (e.key === 'c' || e.key === 'C') {
+                toggleHighContrast();
+            }
         });
     </script>
 </body>
